@@ -2,64 +2,109 @@
 
 
 
-# [Project Name] 🎯
+# [Dev-Psychology] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [404 ERROR]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Muhammed Raihan MA] - [College of engineering Karunagapally]
+- Member 2: [Muhammed Raihan MA] - [College of engineering Karunagapally]
+- Member 3: [Sourabh R] - [College of engineering Karunagapally]
 
 ### Project Description
-[2-3 lines about what your project does]
+Developer Status is a fun terminal-style dashboard that pretends to monitor a developer's mental stability while coding. It displays a fake stability score, coding telemetry, and a humorous diagnosis such as “You're debugging something.”
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Developers have no reliable way to know whether they are calm, frustrated, or one compiler error away from throwing their laptop out the window.
+
+Traditional productivity tools measure useful things like time and tasks. We decided that wasn't enough—we needed to measure developer suffering.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We created Developer Status, an unnecessarily sophisticated monitoring system that displays:
+
+Mental Stability percentage
+Typing speed status
+Backspace activity
+Tab switching
+Idle time
+Error activity
+A completely unofficial developer diagnosis
+
+The system turns ordinary coding behavior into a dramatic developer survival dashboard.
 
 ## Technical Details
 ### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- For Software:
+- Language: TypeScript
+- Framework: React
+- Styling: CSS / Tailwind CSS
+- Libraries: React Hooks
+- Tools: VS Code, npm, Git, GitHub
+- Platform: Web Browser
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- No special hardware required
+- Any laptop/desktop capable of running a modern web browser
+- Keyboard for interacting with the application
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+npm install
 
 # Run
-[commands]
+npm run dev
 
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Dev Psychology landing page](Screenshot%202026-09-12%20014535.png)
+*The Dev Psychology landing page and code editor interface.*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Dev Psychology code editor](Screenshot%202026-09-12%20014704.png)
+*The terminal-style editor with the Roast My Code action.*
+
+![AI roast and developer status](Screenshot%202026-09-12%20014727.png)
+*An AI code roast alongside the developer mental-stability status HUD.*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+
+          Developer Activity
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Activity Tracking │
+        └─────────┬─────────┘
+                  │
+        ┌─────────▼─────────┐
+        │ Calculate Metrics │
+        │                   │
+        │ Typing            │
+        │ Backspaces        │
+        │ Tab Switching     │
+        │ Idle Time         │
+        │ Errors            │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Mental Stability  │
+        │     Score         │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Developer Status  │
+        │      HUD          │
+        └─────────┬─────────┘
+                  │
+                  ▼
+       "You're debugging something."
 
 For Hardware:
 
@@ -82,16 +127,21 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+
+[Watch the Dev Psychology roast animation](funnyanimation.mp4)
+
+The video shows the reaction animation used while the AI is preparing the code roast.
+
+[Watch the full Dev Psychology demo](Screen%20Recording%202026-09-12%20023632.mp4)
+
+The screen recording demonstrates the code editor, AI roast flow, loading animation, and developer status HUD.
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+-Muhammed Raihan MA : ideation and coding
+-Sourabh R: ideation and coding
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
