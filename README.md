@@ -11,8 +11,7 @@
 
 ### Team Members
 - Team Lead: [Muhammed Raihan MA] - [College of engineering Karunagapally]
-- Member 2: [Muhammed Raihan MA] - [College of engineering Karunagapally]
-- Member 3: [Sourabh R] - [College of engineering Karunagapally]
+- Member 2: [Sourabh R] - [College of engineering Karunagapally]
 
 ### Project Description
 Developer Status is a fun terminal-style dashboard that pretends to monitor a developer's mental stability while coding. It displays a fake stability score, coding telemetry, and a humorous diagnosis such as “You're debugging something.”
