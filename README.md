@@ -105,24 +105,6 @@ For Software:
                   ▼
        "You're debugging something."
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
@@ -134,9 +116,6 @@ The video shows the reaction animation used while the AI is preparing the code r
 [Watch the full Dev Psychology demo](Recording%202026-09-12%20053051.mp4)
 
 The screen recording demonstrates the code editor, AI roast flow, loading animation, and developer status HUD.
-
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 -Muhammed Raihan MA : ideation and coding
