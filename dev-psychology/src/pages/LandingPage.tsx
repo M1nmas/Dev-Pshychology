@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -26,11 +26,54 @@ function LandingPage() {
   const [code, setCode] = useState<string>(DEFAULT_CODE);
   const [roast, setRoast] = useState<RoastResult | null>(null);
   const [isRoasting, setIsRoasting] = useState<boolean>(false);
+  const [showRoastReaction, setShowRoastReaction] = useState<boolean>(false);
+  const [roastDamaged, setRoastDamaged] = useState<boolean>(false);
+  const [roastBlackout, setRoastBlackout] = useState<boolean>(false);
   const roastNumber = useRef(0);
 
   const analysis = useMemo(() => {
     return analyzeCode(code);
   }, [code]);
+
+  useEffect(() => {
+    if (!roast) {
+      return;
+    }
+
+    setShowRoastReaction(false);
+  setRoastDamaged(false);
+    setRoastBlackout(false);
+    const roastAudio = new Audio("/assets/roast-dialog.mp3");
+    roastAudio.loop = false;
+    const showReactionAtSixSeconds = () => {
+      if (roastAudio.currentTime >= 6) {
+        setShowRoastReaction(true);
+        roastAudio.removeEventListener("timeupdate", showReactionAtSixSeconds);
+      }
+    };
+
+    roastAudio.addEventListener("timeupdate", showReactionAtSixSeconds);
+    void roastAudio.play().catch((error: unknown) => {
+      console.error("Roast audio playback error:", error);
+    });
+
+    return () => {
+      roastAudio.pause();
+      roastAudio.removeEventListener("timeupdate", showReactionAtSixSeconds);
+    };
+  }, [roast]);
+
+  useEffect(() => {
+    if (!roastDamaged) {
+      return;
+    }
+
+    const blackoutTimer = window.setTimeout(() => {
+      setRoastBlackout(true);
+    }, 1350);
+
+    return () => window.clearTimeout(blackoutTimer);
+  }, [roastDamaged]);
 
   const handleRoast = async () => {
     if (!code.trim() || isRoasting) {
@@ -107,7 +150,7 @@ function LandingPage() {
 
           {roast && (
             <section
-              className={`roast-result roast-${roast.severity}`}
+              className={`roast-result roast-${roast.severity}${roastDamaged ? " roast-damaged" : ""}`}
               aria-live="polite"
             >
               <div className="roast-result-header">
@@ -120,6 +163,20 @@ function LandingPage() {
                 <span className="sentence-spark" aria-hidden="true">💥</span>
                 {roast.message}
               </p>
+
+              {showRoastReaction && (
+                <video
+                  className="roast-video roast-reaction"
+                  src="/assets/roast-reaction.mp4"
+                  autoPlay
+                  muted
+                  playsInline
+                  onEnded={() => setRoastDamaged(true)}
+                  aria-label="Roast reaction"
+                />
+              )}
+
+              {roastBlackout && <div className="roast-blackout" aria-hidden="true" />}
             </section>
           )}
 

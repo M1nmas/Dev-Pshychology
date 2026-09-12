@@ -533,6 +533,8 @@
 ================================ */
 
 .roast-result {
+  position: relative;
+  overflow: hidden;
   width: min(820px, 100%);
 
   margin-top: 25px;
@@ -546,6 +548,58 @@
   text-align: left;
 
   animation: roastAppear 0.3s ease;
+}
+
+.roast-damaged {
+  border-color: #ff3d00;
+  background: #160d0d;
+  box-shadow: 0 0 0 1px rgba(255, 61, 0, 0.2), 0 0 28px rgba(255, 61, 0, 0.2);
+  animation: damageImpact 1.35s steps(2, end), damagePulse 1.8s 1.35s ease-in-out infinite alternate;
+}
+
+.roast-damaged::before,
+.roast-damaged::after {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.roast-damaged::before {
+  content: "SYSTEM DAMAGED // OUTPUT COMPROMISED";
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 61, 0, 0.18);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(10px, 2vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: center;
+  transform: rotate(-8deg);
+  mix-blend-mode: screen;
+  animation: damageStamp 1.35s steps(2, end) both;
+}
+
+.roast-damaged::after {
+  content: "";
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 5px,
+    rgba(255, 61, 0, 0.08) 6px,
+    transparent 7px
+  );
+  mix-blend-mode: screen;
+  animation: scanlineDrift 0.45s linear infinite;
+}
+
+.roast-blackout {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: #000;
+  animation: blackoutIn 0.55s ease-in both;
 }
 
 .roast-loading {
@@ -648,6 +702,12 @@
   animation: videoReveal 0.55s 0.08s both cubic-bezier(.16, 1.3, .3, 1);
 }
 
+.roast-reaction {
+  width: min(360px, 100%);
+  height: 232px;
+  margin-top: 18px;
+}
+
 .roast-loading .roast-video {
   flex: 0 0 168px;
 }
@@ -733,6 +793,42 @@
   }
 }
 
+@keyframes damageImpact {
+  0% { transform: translate(0) skew(0) scale(1); filter: saturate(1); }
+  8% { transform: translate(-8px, 3px) skew(-2deg) scale(1.01); filter: saturate(2.5) contrast(1.6); }
+  16% { transform: translate(9px, -4px) skew(2.5deg) scale(0.99); filter: hue-rotate(35deg) saturate(3) contrast(1.8); }
+  24% { transform: translate(-6px, 2px) skew(-3deg); clip-path: inset(0 0 38% 0); }
+  32% { transform: translate(7px, -2px) skew(3deg); clip-path: inset(42% 0 0 0); }
+  42% { transform: translate(-5px, 1px) skew(-1deg) scale(1.015); filter: saturate(2.4) contrast(1.7); clip-path: inset(0); }
+  54% { transform: translate(4px) skew(1.5deg); }
+  68% { transform: translate(-3px) skew(-0.8deg) scale(0.995); filter: saturate(1.8) contrast(1.3); }
+  82% { transform: translate(2px) skew(0.5deg); }
+  100% { transform: translate(0) skew(0) scale(1); filter: saturate(1); }
+}
+
+@keyframes damagePulse {
+  from { box-shadow: 0 0 0 1px rgba(255, 61, 0, 0.2), 0 0 18px rgba(255, 61, 0, 0.12); }
+  to { box-shadow: 0 0 0 1px rgba(255, 61, 0, 0.45), 0 0 32px rgba(255, 61, 0, 0.28); }
+}
+
+@keyframes damageStamp {
+  0%, 100% { opacity: 0; clip-path: inset(45% 0 45% 0); }
+  10%, 76% { opacity: 1; clip-path: inset(0); }
+  24% { clip-path: inset(20% 0 62% 0); transform: translateX(-10px) rotate(-8deg); }
+  38% { clip-path: inset(62% 0 15% 0); transform: translateX(8px) rotate(-8deg); }
+  55% { clip-path: inset(0 0 0 0); transform: translateX(-3px) rotate(-8deg); }
+}
+
+@keyframes scanlineDrift {
+  from { transform: translateY(-8px); }
+  to { transform: translateY(8px); }
+}
+
+@keyframes blackoutIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes roastDetailIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -802,6 +898,19 @@
   .roast-video {
     animation: none;
   }
+
+  .roast-damaged {
+    animation: none;
+  }
+
+  .roast-damaged::before,
+  .roast-damaged::after {
+    animation: none;
+  }
+
+  .roast-blackout {
+    animation: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -814,6 +923,12 @@
     width: 145px;
     height: 92px;
     flex-basis: 145px;
+  }
+
+  .roast-reaction {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.55;
   }
 
   .loading-copy {

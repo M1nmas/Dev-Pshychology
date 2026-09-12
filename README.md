@@ -131,7 +131,7 @@ For Hardware:
 
 The video shows the reaction animation used while the AI is preparing the code roast.
 
-[Watch the full Dev Psychology demo](Screen%20Recording%202026-09-12%20023632.mp4)
+[Watch the full Dev Psychology demo](Recording%202026-09-12%20053051.mp4)
 
 The screen recording demonstrates the code editor, AI roast flow, loading animation, and developer status HUD.
 
