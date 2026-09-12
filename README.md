@@ -2,7 +2,7 @@
 
 
 
-# [Dev-Psychology] 🎯
+# [Dev-Roaster] 🎯
 
 
 ## Basic Details
@@ -108,10 +108,6 @@ For Software:
 
 ### Project Demo
 # Video
-
-[Watch the Dev Psychology roast animation](funnyanimation.mp4)
-
-The video shows the reaction animation used while the AI is preparing the code roast.
 
 [Watch the full Dev Psychology demo](Recording%202026-09-12%20053051.mp4)
 
